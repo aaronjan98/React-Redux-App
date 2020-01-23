@@ -1,11 +1,11 @@
 import React from 'react';
-import './App.css';
+import './styles.css';
 import Activity from './components/Activity';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World!</h1>
+      <h1>SpaceX's Latest Launch!</h1>
       <Activity />
     </div>
   );

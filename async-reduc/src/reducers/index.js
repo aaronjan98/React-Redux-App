@@ -1,29 +1,30 @@
 import {
-    FETCHING_API_START,
-    FETCHING_API_SUCCESS,
-    FETCHING_API_FAILURE
+    FETCHING_ACTIVITY_START,
+    FETCHING_ACTIVITY_SUCCESS,
+    FETCHING_ACTIVITY_FAILURE
   } from '../actions';
-
-const initialState = {
+  
+  const initialState = {
     isLoading: false,
     activity: null,
     error: ''
-}
-
-export const reducer = (state = initialState, action) => {
-    switch(action.type){
-        case FETCHING_API_START:
-            return {
-              ...state,
-              isLoading: true
-            };
-          case FETCHING_API_SUCCESS:
-            return {
-              ...state,
-              isLoading: false,
-              activity: action.payload
-            };
-        default:
-            return state;
+  };
+  
+  export const reducer = (state = initialState, action) => {
+    switch (action.type) {
+      case FETCHING_ACTIVITY_START:
+        return {
+          ...state,
+          isLoading: true
+        };
+      case FETCHING_ACTIVITY_SUCCESS:
+        return {
+          ...state,
+          isLoading: false,
+          activity: action.payload
+        };
+      default:
+        return state;
     }
-}
+  };
+  
