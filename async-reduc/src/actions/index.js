@@ -8,7 +8,6 @@ export const fetchActivity = () => dispatch => {
   axios
     .get('https://api.spacexdata.com/v3/launches/latest')
     .then(res => {
-      console.log('res.data:', res.data);
       dispatch({ type: FETCHING_ACTIVITY_SUCCESS, payload: res.data });
     })
     .catch(err => {

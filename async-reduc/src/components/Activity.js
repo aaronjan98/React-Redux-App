@@ -1,20 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { fetchActivity } from '../actions';
 
 const Activity = props => {
-    console.log('props.ACTIVITY:', props.activity);
-  return (
+    useEffect(() => {
+        props.fetchActivity()
+    }, [])
+
+    return (
     <div>
-      <button onClick={props.fetchActivity}>Get Activity</button>
-      {!props.activity && !props.isLoading && (
-        <h2>Go ahead a fetch a new activity!</h2>
-      )}
-      {props.isLoading && (<p>loading...</p>)}
+      {!props.activity && !props.isLoading}
+      {props.isLoading && (<p>loading . . . </p>)}
       {props.activity && !props.isLoading && 
       <div>
-
           <h3>{props.activity.mission_name}</h3>
           <p><i>Flight Number: </i>{props.activity.flight_number}</p>
           <p><i>Launch Date: </i>{props.activity.launch_date_utc}</p>
