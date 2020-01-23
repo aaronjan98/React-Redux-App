@@ -6,21 +6,13 @@ export const FETCHING_ACTIVITY_FAILURE = 'FETCHING_ACTIVITY_FAILURE';
 export const fetchActivity = () => dispatch => {
   dispatch({ type: FETCHING_ACTIVITY_START });
   axios
-    .get('https://www.boredapi.com/api/activityhttps://api.spacexdata.com/v3/launches/latest')
+    .get('https://api.spacexdata.com/v3/launches/latest')
     .then(res => {
-      console.log('res:', res);
-      //res.data ==> activity
+      console.log('res.data:', res.data);
       dispatch({ type: FETCHING_ACTIVITY_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: FETCHING_ACTIVITY_FAILURE, payload: err.response });
+      dispatch({ type: FETCHING_ACTIVITY_FAILURE, payload: err.res });
     });
 };
 
-// const thunk = action => next => store => {
-//   if (typeof action === 'function') {
-//     action(store.dispatch);
-//   } else if (typeof action === 'object') {
-//     next(action);
-//   }
-// };
