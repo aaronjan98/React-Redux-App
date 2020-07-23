@@ -42,5 +42,17 @@ h1 {
   flex-direction: column;
   flex-wrap: wrap;
   align-content: center;
-  margin: 0 20%;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+@media only screen and (max-width: 930px) {
+  .spacex-res {
+    padding: 0 15px;
+  }
+
+  .video iframe {
+    width: 95vw;
+    height: 60vh;
+  }
 }
